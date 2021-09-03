@@ -54,13 +54,11 @@ public class Fan {
 		String message = null;
 
 		if (isOn()) {
-			message = "Fan Speed :" + "Fan is Off!" + '\n' + "Fan Color: " + getColor() + '\n' + "Fan Radius:"
-					+ getRadius();
+			message = "The fan is " + getColor() + "with a radius of "+ getRadius() + "and the fan is off";
+					
 		} else {
-			message ="Fan Speed :" + getSpeed() + '\n' + "Fan Color: " + getColor() + '\n' + "Fan Radius:"
-					+ getRadius();
+			message ="The fan speed is set to " + getSpeed()+ "with a color of "+ getColor() + "and a radius of" + getRadius();
 		}
 		return message;
 	}
-
 }

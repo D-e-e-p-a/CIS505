@@ -1,6 +1,6 @@
 package Module_1;
 
-public class TestFan {
+public class FanApp {
 
 	public static void main(String[] args) {
 		
