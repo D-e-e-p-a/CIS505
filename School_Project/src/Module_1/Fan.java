@@ -2,22 +2,27 @@
 package Module_1;
 
 public class Fan {
+	//constant variable declaration
 	final static int SLOW = 1;
 	final static int MEDIUM = 2;
 	final static int FAST = 3;
+	//instance variables
 	private int speed ;
 	private boolean on ;
 	private double radius;
 	private String color ;
 
-	Fan() {
+	
+	Fan() {					//constructor with default values
 		speed = Fan.SLOW;
 		on = false;
 		radius = 5;
 		color = "Blue";
 	}
 
-	public int getSpeed() {
+	
+	//getter and setter methods for the instance variables
+	public int getSpeed() { 
 		return speed;
 	}
 
@@ -48,16 +53,17 @@ public class Fan {
 	public void setColor(String color) {
 		this.color = color;
 	}
+	//method to print the final results 
 
 	public String toString() {
 
 		String message = null;
 
 		if (isOn()) {
-			message = "The fan is " + getColor() + "with a radius of "+ getRadius() + "and the fan is off";
+			message = "The fan is " + getColor() + " with a radius of "+ getRadius() + " and the fan is off";
 					
 		} else {
-			message ="The fan speed is set to " + getSpeed()+ "with a color of "+ getColor() + "and a radius of" + getRadius();
+			message ="The fan speed is set to speed " + getSpeed()+ " with a color of "+ getColor() + " and a radius of " + getRadius();
 		}
 		return message;
 	}
