@@ -1,2 +1,35 @@
-/Module_1/
-/Module_2/
+##os X
+.DS_Store
+
+##Eclipse IDE
+bin/
+temp/
+.metadata
+*.tmp
+.settings/
+local.properties
+
+## vs code IDE
+.vscode
+.code-workspace
+
+##InteliJ IDE
+.idea
+out/
+
+##Netbeans
+build/
+nbbuild/
+dist/
+nbproject/
+
+## General files
+*.class
+*.jar
+*.war
+*.log
+/target/
+hs_err_pide
+.Project
+.classpath
+.impl
