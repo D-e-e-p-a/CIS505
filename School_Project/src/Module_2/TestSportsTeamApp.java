@@ -12,7 +12,7 @@ public class TestSportsTeamApp {
 		System.out.println("  " + "Welcome to the sports Team App" + '\n');
 
 		while (choice.equalsIgnoreCase("y")) {
-			
+
 			takingValues();
 			teamSummary();
 			MoreTeam();
@@ -29,7 +29,6 @@ public class TestSportsTeamApp {
 	private static void MoreTeam() {
 		System.out.print('\n' + "  " + "Continue? (y/n): ");
 		choice = sc.next();
-		
 		System.out.println();
 
 	}
@@ -40,7 +39,6 @@ public class TestSportsTeamApp {
 		team1 = new Team(sc.next());// Assigns the team name
 		System.out.println('\n' + "  " + "Enter the Players Name: ");
 		System.out.println("  " + "Hint: use comma for multiple players; no space>:");
-
 		addPlayersToList(sc.next());
 
 	}
