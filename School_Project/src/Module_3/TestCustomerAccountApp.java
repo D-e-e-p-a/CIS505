@@ -3,11 +3,11 @@ package Module_3;
 import java.util.Scanner;
 
 public class TestCustomerAccountApp {
-	
+
 	static Customer customer;
 	static Account act = new Account();
 	static String choice = "y";
-	public static Scanner sc = new Scanner(System.in);// scanner variable to get the system inputs.
+	static Scanner sc = new Scanner(System.in);// scanner variable to get the system inputs.
 
 	public static void main(String[] args) {
 
@@ -17,7 +17,6 @@ public class TestCustomerAccountApp {
 
 		do {
 			displayMenu();
-
 			System.out.println("Continue : Y/N ");
 			choice = sc.next();
 
