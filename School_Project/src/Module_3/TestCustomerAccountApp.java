@@ -2,11 +2,13 @@ package Module_3;
 
 import java.util.Scanner;
 
+
 public class TestCustomerAccountApp {
 
 	static Customer customer;
 	static Account act = new Account();
 	static String choice = "y";
+	static String inputString;
 	static Scanner sc = new Scanner(System.in);// scanner variable to get the system inputs.
 
 	public static void main(String[] args) {
@@ -14,24 +16,50 @@ public class TestCustomerAccountApp {
 		System.out.println("Welcome to the sports Team App" + '\n');
 
 		enterCustomerId();
-
 		do {
-			displayMenu();
-			System.out.println("Continue : Y/N ");
-			choice = sc.next();
 
+			do {
+				displayMenu();
+				System.out.println("Continue : Y/N ");
+				choice = sc.next();
+
+			} while (choice.equalsIgnoreCase("Y"));
+
+			if (choice.equalsIgnoreCase("n")) {
+				// displayCustDetails();
+				// System.out.println("Thank you!");
+
+			} else {
+
+				System.out.println("Enter Y or N || Continue : Y/N ");
+				choice = sc.next();
+			}
 		} while (choice.equalsIgnoreCase("Y"));
 
 		displayCustDetails();
-		System.out.println("Thank you!");
 
 	}
 
 	// utility methods
 
-	private static void displayCustDetails() {
-		customer.displayCustomerInfo();
+	private static void displayCustDetails() { //diplays the customer account information
+		switch (inputString) {
+		case "D":
+		case "d":
+		case "W":
+		case "w":
+		case "B":
+		case "b":
+			customer.displayCustomerInfo();
+			break;
+
+		default:
+			System.out.println("Unexpected Input for the Menu Choice: " + inputString);
+			break;
+		}
 		act.displayAccount();
+
+		System.out.println("Thank you!");
 
 	}
 
@@ -40,7 +68,7 @@ public class TestCustomerAccountApp {
 		double amt = 0.0;
 
 		act.menu();
-		String inputString = sc.next();
+		inputString = sc.next();
 
 		if (inputString.equalsIgnoreCase("D")) {
 
