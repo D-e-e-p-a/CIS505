@@ -16,6 +16,8 @@ public class Ball extends Product{
 		this.color = color;
 	}
 	
+	
+	
 
 	public String toString(){
 		

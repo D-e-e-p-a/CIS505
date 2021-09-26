@@ -6,6 +6,7 @@ public class ProductDB {
 		GenericQueue<Product> product = null;
 
 		if (code.equalsIgnoreCase("b")) {
+			
 
 			GenericQueue<Product> balls = new GenericQueue<>(); // Product generic queue named Balls
 

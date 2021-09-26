@@ -13,6 +13,7 @@ public class GenericQueue<E> {
 	 public E dequeue() {//Removes the first item 
 		return  list.removeFirst();
 		 
+		
 	 }
 	 public int size() { //returns he size of the list
 		 return list.size();

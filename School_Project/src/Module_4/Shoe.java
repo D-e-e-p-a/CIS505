@@ -20,5 +20,6 @@ public class Shoe extends Product {
 		return s;
 
 	};
+	
 
 }

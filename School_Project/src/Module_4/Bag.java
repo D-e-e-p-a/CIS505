@@ -10,16 +10,15 @@ public class Bag extends Product {
 	public void setTrype(String type) {
 		this.type = type;
 	}
-	@Override
-	
-public String toString(){
-		
-		
-		String s=(super.toString() +'\n' + "Bag Type : "+this.type +'\n' );
-		
-		return s;
-		
-	};
 
+	@Override
+
+	public String toString() {
+
+		String s = (super.toString() + '\n' + "Bag Type : " + this.type + '\n');
+
+		return s;
+
+	};
 
 }

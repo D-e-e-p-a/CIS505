@@ -22,6 +22,7 @@ public class Product {
 				+ "Product Price :" + f.format(price);
 		return message;
 	}
+	
 
 	// getters
 
