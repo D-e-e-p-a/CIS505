@@ -1,19 +1,25 @@
 package Module_4;
 
+import java.text.NumberFormat;
+import java.util.Currency;
+
 public class Product {
 	private String code = "";
 	private String description = "";// product description
 	private double price = 0.0;
 
-	/*
-	 * public Product() { }
-	 */// no argument constructors
+	
+	  public Product() { 
+		  
+	  }
+	 // no argument constructors
 
 	@Override
 	public String toString() {
+		NumberFormat f=NumberFormat.getCurrencyInstance();
 
 		String message = "product Code : " + code + '\n' + "Product Description :" + description + '\n'
-				+ "Product Price :" + price;
+				+ "Product Price :" + f.format(price);
 		return message;
 	}
 
@@ -41,6 +47,7 @@ public class Product {
 	}
 
 	public void setPrice(double price) {
+		
 		this.price = price;
 	}
 

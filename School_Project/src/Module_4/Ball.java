@@ -20,7 +20,7 @@ public class Ball extends Product{
 	public String toString(){
 		
 		
-		String s=(super.toString() +'\n' + "Color : "+this.color );
+		String s=(super.toString() +'\n' + "Color : "+this.color +'\n' );
 		
 		return s;
 		
