@@ -42,7 +42,7 @@ public class TestCustomerAccountApp {
 
 	// utility methods
 
-	private static void displayCustDetails() { //diplays the customer account information
+	private static void displayCustDetails() { //displays the customer account information
 		switch (inputString) {
 		case "D":
 		case "d":
