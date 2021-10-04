@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TestBowlingShopApp {
 	static Scanner sc = new Scanner(System.in);
 	static boolean flag = true;
-	static GenericQueue<Product> product = null;
+	static private GenericQueue<Product> product = null;
 	// static String input;
 
 	public static void main(String[] args) {
