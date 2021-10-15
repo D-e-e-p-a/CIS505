@@ -87,8 +87,8 @@ public class NatarajanFutureValueApp extends Application {
 	private Node getVbox() {
 
 		// text area
-		textArea.setPrefColumnCount(20);
-		textArea.setPrefRowCount(10);
+		textArea.setPrefColumnCount(15);
+		textArea.setPrefRowCount(5);
 		textArea.setWrapText(true);
 		textArea.setFont(Font.font("Times", 12));
 
