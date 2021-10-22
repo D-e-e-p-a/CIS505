@@ -25,14 +25,12 @@ public class NatarajanFutureValueApp extends Application {
 	private Label lblMonthlyPayment = new Label("Monthly Payment");
 	private Label lblInterestRate = new Label("Interest Rate");
 	private Label lblInterestRateFormat = new Label();
-	private Label year = new Label("Years");
+	private Label year = new Label("Years");	
 	private Button btnClear = new Button("Clear");
 	private Button btnCalculator = new Button("Calculator");
-
 	private ComboBox<Integer> listBox = new ComboBox<>();
-
 	private TextField mpayment = new TextField();
-	private TextField iRate = new TextField();
+	private TextField iRate = new TextField();	
 	private TextArea textArea = new TextArea();
 	
 
