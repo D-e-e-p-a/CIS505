@@ -1,8 +1,7 @@
 package GradeBookApp;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -14,12 +13,21 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * @author Deepa
+ * This class is the GUI part 
+ * has  fields and start() methods
+ * Start method holds the action even for clear, save and view* 
+ * 
+ *
+ */
 public class GradeBook extends Application {
 
-	// labels.combobox and textfields
+	// labels.combobox and text fields
 
 	private Label firstName = new Label("First Name");
 	private Label lastName = new Label("Last Name");
@@ -41,16 +49,76 @@ public class GradeBook extends Application {
 		// create boarder pane for holding top and bottom panes
 
 		BorderPane bPane = new BorderPane();
-		bPane.setTop(TopPane());
-		bPane.setBottom(bottomPane());
+		bPane.setTop(TopPane());// top pane hold the labels and text fields
+		bPane.setBottom(bottomPane());// Bottom pane hold the bottom and the action event
 
-		// Action Event
+		//// Action Event Lambda expression to view
 
-		btnView.setOnAction(new ViewList());// inner class created to view list
-		btnClear.setOnAction(new clearEntry());// inner class created to clear the form
-		btnSave.setOnAction(new saveList());// new inner class to save the entry in the csv file
+		btnView.setOnAction(e -> {
 
-		//create scene and set stage
+			GridPane pane = new GridPane();
+			try {
+				java.util.List<Student> student = StudentIO.findAll();
+				int i = 0;
+				for (Student s : student) {
+
+					Text s1 = new Text(s.getFirstName());// thought the requirement is to use tostring from student
+															// class
+					Text s2 = new Text(s.getLastName());// I preferred this grid style for proper spacing on the view
+														// screen
+					Text s3 = new Text(s.getCourse());
+					Text s4 = new Text(s.getGrade());
+
+					pane.add(s1, 1, i);
+					pane.add(s2, 2, i);
+					pane.add(s3, 3, i);
+					pane.add(s4, 4, i++);
+
+				}
+
+				Stage stage2 = new Stage();
+				Scene scene2 = new Scene(pane, 400, 450);
+				stage2.setTitle("Grades_Display");
+				stage2.setScene(scene2);
+				stage2.show();
+			} catch (Exception e1) {
+				System.out.println(e1.getMessage());
+			}
+		});
+
+		// // Action Event lambda expression to clear the form
+		btnClear.setOnAction(e -> {
+			fName.clear();
+			lName.clear();
+			cName.clear();
+			listBox.getSelectionModel().clearSelection();
+
+		});
+
+		// // Action Event lambda expression to save the entry
+		btnSave.setOnAction(e -> {
+			Student student = null;
+
+			{
+				String firstName = fName.getText();
+				String lastName = lName.getText();
+				String courseName = cName.getText();
+				String grade = listBox.getValue();
+				if (StudentIO.getString(firstName, lastName, courseName, grade))//validation point for the input values
+					student = new Student(firstName, lastName, courseName, grade);//if validation passes-student object is created.
+
+				try {
+
+					StudentIO.insert(student);
+				}catch (Exception e1) {
+					System.out.println(e1.getMessage());
+					//e1.printStackTrace();
+				}
+
+			}
+		});
+
+		// create scene and set stage
 		Scene scene = new Scene(bPane, 250, 200);
 
 		primaryStage.setTitle("GradeBookApp");
@@ -59,6 +127,10 @@ public class GradeBook extends Application {
 
 	}
 
+	/**
+	 * @return pane
+	 * GUI part to hold the labels and the fields
+	 */
 	private Node TopPane() {
 		// create Grid pane and to set properties
 		GridPane pane = new GridPane();
@@ -82,6 +154,10 @@ public class GradeBook extends Application {
 		return pane;
 	}
 
+	/**
+	 * @return pane
+	 * Gui part to hold the buttons at the bottom horizontally
+	 */
 	private Node bottomPane() {
 		// create HBox for the button
 
@@ -91,47 +167,6 @@ public class GradeBook extends Application {
 		hBox.setAlignment(Pos.BASELINE_RIGHT);
 		hBox.getChildren().addAll(btnClear, btnSave, btnView);
 		return hBox;
-	}
-
-//inner class to list the entry
-	class ViewList implements EventHandler<ActionEvent> {
-
-		@Override
-		public void handle(ActionEvent e) {
-			Stage stage2 = new Stage();
-			Pane pane = new Pane();
-			Scene scene2 = new Scene(pane, 400, 450);
-			stage2.setTitle("Grades_Display");
-			stage2.setScene(scene2);
-			stage2.show();
-
-		}
-
-	}
-
-	// inner class to clear all the entry on the gui
-
-	class clearEntry implements EventHandler<ActionEvent> {
-
-		@Override
-		public void handle(ActionEvent e) {
-
-			fName.clear();
-			lName.clear();
-			cName.clear();
-			listBox.getSelectionModel().clearSelection();
-		}
-
-	}
-
-	class saveList implements EventHandler<ActionEvent> {
-
-		@Override
-		public void handle(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-
-		}
-
 	}
 
 }
