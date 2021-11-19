@@ -1,6 +1,11 @@
 package GradeBookApp;
 
+/*
+References:
 
+Krasso, R., (2021). CIS 505 Intermediate Java Programming. Bellevue University, all rights reserved.
+Liang, Y.D. (2019). Introduction to Java Programming and Data Structures: Comprehensive Version (12th ed.). Pearson Education, Inc.
+*/
 import javafx.application.Application;
 
 import javafx.stage.Stage;

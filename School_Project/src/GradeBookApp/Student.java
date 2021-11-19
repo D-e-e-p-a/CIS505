@@ -70,10 +70,11 @@ public class Student {
 	@Override
 	public String toString() {
 		String cString=",";
+		String newLineTag = "\n";
 
 		String str = firstName+cString+lastName+cString+course+cString+grade;
 		
-		return str;
+		return newLineTag+str;
 
 	}
 
